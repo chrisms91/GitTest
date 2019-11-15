@@ -1,0 +1,26 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build_Debug">
+<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+  <PropertyGroup>
+	<ProjectName>GitTest</ProjectName>
+	<LibrariesPath>C:\Work\Beta\Libraries</LibrariesPath>
+  </PropertyGroup>	  
+
+  <!-- Build - these clean and rebuild the projects 
+      referenced in the SLN file. -->
+  <Target Name="Build_Debug">
+        <MSBuild Projects=".\$(ProjectName).sln" Targets="Clean; Rebuild"
+	Properties="Configuration=Debug"></MSBuild>
+  </Target>
+  <Target Name="Test_Debug">
+        <Message Text="Starting to Test"/>
+        <NUnit Assemblies=".\$(ProjectName).Test\bin\Debug\$(ProjectName).Test.dll"
+               ContinueOnError="false"
+               ToolPath="$(LibrariesPath)\NUnit\NUnit-2-4-8-net-2-0\bin" 
+               OutputXmlFile="NUnitResults.xml" />
+	       </Target>
+	       <Target Name="TestAndBuild" DependsOnTargets="Build_Debug;Test_Debug" />
+
+
+ 
+</Project>
