@@ -6,6 +6,8 @@
 *.user
 *.userosscache
 *.sln.docstates
+
+# files with sensitive informations
 AppSettings.config
 ConnectionStrings.config
 hibernate.cfg.xml.config
