@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/chrisms91/GitTest.git'
+        def scmVars = checkout scm
       }
     }
 
