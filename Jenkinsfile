@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        bat '"\\"${tool \'MSBuild 2017\'}\\" GitTest.sln /p:Configuration=Debug /p:Platform=\\"Any CPU\\""'
+        bat 'C:\\Progra~2\\Micros~2\\2017\\Professional\\MSBuild\\15.0\\Bin\\MSBuild.exe GitTest.sln /t:GitTest.sln /p:Configuration=Debug /p:Platform="Any CPU"'
       }
     }
 
