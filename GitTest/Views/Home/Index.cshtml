@@ -7,9 +7,11 @@
 	<h1>ASP.NET</h1>
 	<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
 	<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-	<p>@ConfigurationManager.AppSettings["Test"]</p>
-	<p>@ConfigurationManager.ConnectionStrings["oracle"].ConnectionString</p>
-	<p>@ConfigurationManager.ConnectionStrings["customerextranet"].ConnectionString</p>
+	<p>AppSettings_IsProduction: @ConfigurationManager.AppSettings["IsProduction"]</p>
+	<p>AppSettings_yop: @ConfigurationManager.AppSettings["yop"]</p>
+	<p>AppSettings_UnobtrusiveJavaScriptEnabled: @ConfigurationManager.AppSettings["UnobtrusiveJavaScriptEnabled"]</p>
+	<p>ConnectionStrings_test: @ConfigurationManager.ConnectionStrings["test_constr"].ConnectionString</p>
+	<p>ConnectionStrings_test1: @ConfigurationManager.ConnectionStrings["test1_constr"].ConnectionString</p>
 </div>
 
 <div class="row">
