@@ -26,5 +26,12 @@ namespace GitTest.Controllers
 
 			return View();
 		}
+
+		public ActionResult Protein()
+		{
+			ViewBag.Message = "MORE PROTEIN";
+
+			return View();
+		}
 	}
 }
