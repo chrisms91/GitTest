@@ -45,16 +45,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-	<Target Name="_CopyConfigFilesToProject" BeforeTargets="BeforeBuild">
-		<Copy SourceFiles="c:\common_roth\gittest\hibernate.cfg.xml.config" DestinationFolder=".\">
-		</Copy>
-		<Copy SourceFiles="c:\common_roth\gittest\hibernate.oracle.cfg.xml.config" DestinationFolder=".\">
-		</Copy>
-		<Copy SourceFiles="c:\common_roth\gittest\ConnectionStrings.config" DestinationFolder=".\">
-		</Copy>
-		<Copy SourceFiles="c:\common_roth\gittest\AppSettings.config" DestinationFolder=".\">
-		</Copy>
-	</Target>
+  <Target Name="_CopyConfigFilesToProject" BeforeTargets="BeforeBuild">
+    <Copy SourceFiles="c:\common_roth\gittest\hibernate.cfg.xml.config" DestinationFolder=".\">
+    </Copy>
+    <Copy SourceFiles="c:\common_roth\gittest\hibernate.oracle.cfg.xml.config" DestinationFolder=".\">
+    </Copy>
+    <Copy SourceFiles="c:\common_roth\gittest\ConnectionStrings.config" DestinationFolder=".\">
+    </Copy>
+    <Copy SourceFiles="c:\common_roth\gittest\AppSettings.config" DestinationFolder=".\">
+    </Copy>
+  </Target>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -188,6 +188,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Protein.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
