@@ -13,5 +13,15 @@ pipeline {
       }
     }
 
+    stage('Deploy to Dev') {
+      input {
+        message "Should we deploy to dev?"
+        ok "Deploy"
+      }
+      steps {
+        echo "Deploying..."
+      }
+    }
+
   }
 }
