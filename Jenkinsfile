@@ -1,7 +1,7 @@
 pipeline {
   agent none
   stages {
-    
+    stage('Checking out') {
       agent { label 'master'}
       stages {
         stage ('Restore Nuget Package') {
@@ -15,7 +15,7 @@ pipeline {
           }
         }
       }
-    
+    }
 
     stage('Deploy to Dev') {
       agent none
