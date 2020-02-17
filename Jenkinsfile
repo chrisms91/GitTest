@@ -26,18 +26,6 @@ pipeline {
         }
       }
     }
-    
-    // only when feature branch is merged to development branch
-    stage('Deploy to development server') {
-      agent {label 'master'}
-      when {
-        branch 'development'
-      }
-      steps {
-        echo 'Development branch is deployed to dev server'
-      }
-    }
-
     // only when development branch is merged to master branch.
     stage('Preprod deploy approval') {
       agent none
@@ -45,17 +33,30 @@ pipeline {
         branch 'master'
       }
       input {
-        message "D"
+        message "Deploy to preprod?????"
       }
     }
 
-    stage('Deploy to preprod server') {
+    stage('Deployments') {
       agent {label 'master'}
-      when {
-        branch 'master'
-      }
-      steps {
-        echo 'Master branch is deployed to preprod server'
+      stages{
+        // only when feature branch is merged to development branch
+        stage('Deploy to development') {
+          when {
+            branch 'development'
+          }
+          steps {
+            echo 'Development branch is deployed to dev server'
+          }
+        }
+        stage('Deploy to preprod server') {
+          when {
+            branch 'master'
+          }
+          steps {
+            echo 'Master branch is deployed to preprod server'
+          }
+        }
       }
     }
   }
