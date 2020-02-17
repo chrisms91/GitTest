@@ -35,7 +35,7 @@ pipeline {
       input {
         message 'Deploy to preprod?????'
       }
-      step {
+      steps {
         echo 'Approved'
       }
     }
