@@ -33,7 +33,10 @@ pipeline {
         branch 'master'
       }
       input {
-        message "Deploy to preprod?????"
+        message 'Deploy to preprod?????'
+      }
+      step {
+        echo 'Approved'
       }
     }
 
