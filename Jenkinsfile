@@ -54,7 +54,11 @@ pipeline {
         // only when feature branch is pushed to development branch
         stage('Deploy to development') {
           when {
-            branch 'development'
+            expression {
+              isDev = env.BRANCH_NAME == 'development'
+              isPrDev = env.CHANGE_NAME == 'development'
+              return isDev && isPrDev
+            }
           }
           steps {
             echo 'Development branch is deployed to dev server'
