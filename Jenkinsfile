@@ -55,9 +55,10 @@ pipeline {
         stage('Deploy to development') {
           when {
             expression {
-              isDev = env.BRANCH_NAME == 'development'
-              isPrDev = env.CHANGE_NAME == 'development'
-              return isDev && isPrDev
+              isPr = (env.BRANCH_NAME ==~ /PR*([a-z0-9]*)/)
+              isDev = env.CHANGE_NAME == 'development'
+              echo 'env.BRANCH_NAME: ${env.BRANCH_NAME}, env.CHANGE_NAME: ${env.CHANGE_NAME}, isPr: ${isPr}, isDev: ${isDev}'
+              return isPr && isDev
             }
           }
           steps {
