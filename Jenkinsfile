@@ -59,6 +59,7 @@ pipeline {
             branch 'development'
           }
           steps {
+            bat 'rmdir C:\\Work\\Deploy\\GitTest'
             bat 'xcopy "%WORKSPACE%\\*.*" C:\\Work\\Deploy\\GitTest\\ /s'
             bat 'C:\\Work\\GitTestDeployToDevelopment.bat'
           }
