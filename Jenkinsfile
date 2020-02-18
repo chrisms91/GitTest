@@ -30,10 +30,12 @@ pipeline {
     stage('Preprod deploy approval') {
       agent none
       when {
+        beforeInput true
         branch 'master'
       }
       input {
         message 'Deploy to preprod?????'
+        ok 'Deploy'
       }
       steps {
         echo 'Approved'
@@ -42,6 +44,9 @@ pipeline {
 
     stage('Deployments') {
       agent {label 'master'}
+      options {
+        skipDefaultCheckout true
+      }
       stages{
         // only when feature branch is merged to development branch
         stage('Deploy to development') {
