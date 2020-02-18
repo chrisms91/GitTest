@@ -59,7 +59,7 @@ pipeline {
             branch 'development'
           }
           steps {
-            bat 'xcopy "%WORKSPACE%"\\\\\\\\*.* C:\\Work\\Deploy\\GitTest\\ /s'
+            bat 'xcopy "%WORKSPACE%\\*.*" C:\\Work\\Deploy\\GitTest\\ /s'
           }
         }
         stage('Deploy to preprod server') {
