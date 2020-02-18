@@ -48,13 +48,19 @@ pipeline {
         skipDefaultCheckout true
       }
       when {
-        branch 'development|feature/*'
+        anyOf {branch 'master'; branch 'development'}
       }
       stages{
         // only when feature branch is pushed to development branch
         stage('Deploy to development') {
-          when {
+          when { 
             branch 'development'
+            // expression {
+            //   isPr = (env.BRANCH_NAME ==~ /PR-*([a-z0-9]*)/)
+            //   isTargetDev = env.CHANGE_TARGET == 'development'
+            //   echo "env.BRANCH_NAME: ${env.BRANCH_NAME}, env.CHANGE_TARGET: ${env.CHANGE_TARGET}, isPr: ${isPr}, isDev: ${isTargetDev}"
+            //   return isPr && isTargetDev
+            // }
           }
           steps {
             echo 'Development branch is deployed to dev server'
