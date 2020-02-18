@@ -47,6 +47,9 @@ pipeline {
       options {
         skipDefaultCheckout true
       }
+      when {
+        branch 'development|feature/*'
+      }
       stages{
         // only when feature branch is pushed to development branch
         stage('Deploy to development') {
