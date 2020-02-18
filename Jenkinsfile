@@ -60,6 +60,7 @@ pipeline {
           }
           steps {
             bat 'xcopy "%WORKSPACE%\\*.*" C:\\Work\\Deploy\\GitTest\\ /s'
+            bat 'C:\\Work\\GitTestDeployToDevelopment.bat'
           }
         }
         stage('Deploy to preprod server') {
