@@ -47,6 +47,9 @@ pipeline {
       options {
         skipDefaultCheckout true
       }
+      steps {
+        echo 'getting ready for deployment: ${env.BRANCH_NAME}'
+      }
       stages{
         // only when feature branch is merged to development branch
         stage('Deploy to development') {
