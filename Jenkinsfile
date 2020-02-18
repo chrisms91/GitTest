@@ -1,3 +1,5 @@
+def projectName = 'GitTest'
+
 pipeline {
   agent none
   stages {
@@ -55,15 +57,9 @@ pipeline {
         stage('Deploy to development') {
           when { 
             branch 'development'
-            // expression {
-            //   isPr = (env.BRANCH_NAME ==~ /PR-*([a-z0-9]*)/)
-            //   isTargetDev = env.CHANGE_TARGET == 'development'
-            //   echo "env.BRANCH_NAME: ${env.BRANCH_NAME}, env.CHANGE_TARGET: ${env.CHANGE_TARGET}, isPr: ${isPr}, isDev: ${isTargetDev}"
-            //   return isPr && isTargetDev
-            // }
           }
           steps {
-            echo 'Development branch is deployed to dev server'
+            bat "xcopy %WORKSPACE%\\\\\\\\*.* C:\\Work\\Deploy\\${projectName}\\ /s"
           }
         }
         stage('Deploy to preprod server') {
@@ -78,3 +74,10 @@ pipeline {
     }
   }
 } 
+
+// expression {
+//   isPr = (env.BRANCH_NAME ==~ /PR-*([a-z0-9]*)/)
+//   isTargetDev = env.CHANGE_TARGET == 'development'
+//   echo "env.BRANCH_NAME: ${env.BRANCH_NAME}, env.CHANGE_TARGET: ${env.CHANGE_TARGET}, isPr: ${isPr}, isDev: ${isTargetDev}"
+//   return isPr && isTargetDev
+// }
