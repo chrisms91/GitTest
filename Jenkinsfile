@@ -48,7 +48,7 @@ pipeline {
         skipDefaultCheckout true
       }
       when {
-        branch 'development|feature/*'
+        anyOf {branch 'feature/*'; branch 'development'}
       }
       stages{
         // only when feature branch is pushed to development branch
