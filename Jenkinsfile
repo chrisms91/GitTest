@@ -26,7 +26,7 @@ pipeline {
         }
       }
     }
-    // only when development branch is merged to master branch.
+    // only when development branch is pushed to master branch.
     stage('Preprod deploy approval') {
       agent none
       when {
@@ -47,11 +47,8 @@ pipeline {
       options {
         skipDefaultCheckout true
       }
-      steps {
-        echo 'getting ready for deployment: ${env.BRANCH_NAME}'
-      }
       stages{
-        // only when feature branch is merged to development branch
+        // only when feature branch is pushed to development branch
         stage('Deploy to development') {
           when {
             branch 'development'
